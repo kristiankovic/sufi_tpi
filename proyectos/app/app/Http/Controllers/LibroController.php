@@ -64,9 +64,9 @@ class LibroController extends Controller
      */
     public function destroy($id)
     {
-        $autor = Libro::find($id);
-        $autor->delete();
+        $libro = Libro::find($id);
+        $libro->delete();
 
-        return redirect("autores.index")->with("success","Registro elimanado");
+        return redirect("libros.index")->with("success","Registro eliminado");
     }
 }
