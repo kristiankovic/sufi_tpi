@@ -12,7 +12,9 @@ class LibroController extends Controller
      */
     public function index()
     {
-        //
+        $libros = Libro::all();
+
+        return view("libros.index", compact("libros"));
     }
 
     /**
@@ -42,9 +44,11 @@ class LibroController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Libro $libro)
+    public function edit($id)
     {
-        //
+        $libro = Libro::find($id);
+
+        return view("libros.edit", compact("libro"));
     }
 
     /**
@@ -58,8 +62,11 @@ class LibroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Libro $libro)
+    public function destroy($id)
     {
-        //
+        $autor = Libro::find($id);
+        $autor->delete();
+
+        return redirect("autores.index")->with("success","Registro elimanado");
     }
 }

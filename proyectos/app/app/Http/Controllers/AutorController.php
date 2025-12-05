@@ -12,7 +12,9 @@ class AutorController extends Controller
      */
     public function index()
     {
-        //
+        $autores = Autor::all();
+
+        return view("autores.index", compact("autores"));
     }
 
     /**
@@ -58,8 +60,8 @@ class AutorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Autor $autor)
+    public function destroy()
     {
-        //
+        
     }
 }
