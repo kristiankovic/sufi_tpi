@@ -1,0 +1,9 @@
+crear los modelos
+
+php artisan make:model Autor -mfrs
+php artisan make:model Libro -mfrs
+
+
+crear las migraciones de Autor
+
+php artisan migrate:fresh --seed
