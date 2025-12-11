@@ -10,10 +10,10 @@
 <body>
     <header>
         @yield('header')
-        <div class="bg-gray-800 text-white mx-2 my-2 flex flex-row justify-center gap-3">
-            <a class="p-2" href="{{ route('home') }}">Inicio</a>
-            <a class="p-2" href="{{ route('libros.index')  }}">Libros</a>
-            <a class="p-2" href="{{ route('autores.index')  }}">Autores</a>
+        <div class="bg-gray-800 text-white mx-2 my-2 flex flex-row justify-center gap-3 rounded-lg">
+            <a class="p-2 hover:bg-black" href="{{ route('home') }}">Inicio</a>
+            <a class="p-2 hover:bg-black" href="{{ route('libros.index')  }}">Libros</a>
+            <a class="p-2 hover:bg-black" href="{{ route('autores.index')  }}">Autores</a>
         </div>
     </header>
 

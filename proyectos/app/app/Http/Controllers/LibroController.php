@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Autor;
 use App\Models\Libro;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,9 @@ class LibroController extends Controller
      */
     public function create()
     {
-        //
+        $autores = Autor::all();
+
+        return view('libros.create', compact('autores'));
     }
 
     /**
@@ -30,7 +33,13 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Libro::create([
+            'titulo' => $request->input('titulo'),
+            'anio_publicacion' => $request->input('anio_publicacion'),
+            'autor_id' => $request->input('autor_id'),
+        ]);
+
+        return redirect()->route('libros.index')->with('success', 'Registro creado correctamente');
     }
 
     /**
