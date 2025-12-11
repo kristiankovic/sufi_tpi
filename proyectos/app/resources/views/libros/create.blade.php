@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-    <div class="bg-gray-400 flex flex-col justify-center items-center mx-8 gap-3 p-2">
+    <div class="bg-gray-400 flex flex-col justify-center items-center mx-8 gap-3 p-4">
 
         <h2 class=""><strong>Ingreso de informacion para nuevo libro</strong></h2>
 
@@ -23,7 +23,7 @@
             <div>
                 <label for="autor">Autor</label>
                 <select class="bg-white w-full p-1" name="autor_id" id="autor_id" required>
-                    <option value="" disabled>Seleccione un autor</option>
+                    <option value="">Seleccione un autor</option>
                     @foreach ($autores as $autor)
                         <option value="{{ $autor->id }}">{{ $autor->nombre }}</option>
                     @endforeach

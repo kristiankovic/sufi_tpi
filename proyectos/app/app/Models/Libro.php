@@ -16,4 +16,9 @@ class Libro extends Model
         'anio_publicacion',
         'autor_id'
     ];
+
+    public function autor()
+    {
+        return $this->belongsTo(Autor::class);
+    }
 }

@@ -14,8 +14,8 @@ class LibroController extends Controller
     public function index()
     {
         $libros = Libro::all();
-
-        return view("libros.index", compact("libros"));
+        $libros = Libro::with('autor')->get();
+        return view('libros.index', compact('libros'));
     }
 
     /**
@@ -56,8 +56,9 @@ class LibroController extends Controller
     public function edit($id)
     {
         $libro = Libro::find($id);
+        $autores = Autor::all();
 
-        return view("libros.edit", compact("libro"));
+        return view("libros.edit", compact("libro", "autores"));
     }
 
     /**
@@ -65,7 +66,13 @@ class LibroController extends Controller
      */
     public function update(Request $request, Libro $libro)
     {
-        //
+        Libro::update([
+            'titlo'             => $request->input('titulo'),
+            'anio_publicacion'  => $request->input('anio_publicacion'),
+            'autor_id'          => $request->input('autor_id')
+        ]);
+
+        return redirect()->route('libros.index')->with('success', 'Registro actualizado correctamente');
     }
 
     /**
@@ -73,9 +80,9 @@ class LibroController extends Controller
      */
     public function destroy($id)
     {
-        $libro = Libro::find($id);
+        $libro = Libro::findOrFail($id);
         $libro->delete();
 
-        return redirect("libros.index")->with("success","Registro eliminado");
+        return redirect()->route('libros.index')->with('success', 'Registro eliminado');
     }
 }
