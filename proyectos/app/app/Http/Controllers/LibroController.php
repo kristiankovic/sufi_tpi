@@ -33,13 +33,8 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        Libro::create([
-            'titulo' => $request->input('titulo'),
-            'anio_publicacion' => $request->input('anio_publicacion'),
-            'autor_id' => $request->input('autor_id'),
-        ]);
-
-        return redirect()->route('libros.index')->with('success', 'Registro creado correctamente');
+        Libro::create($request->all());
+        return redirect()->route('libros.index');
     }
 
     /**
@@ -72,7 +67,7 @@ class LibroController extends Controller
             'autor_id'          => $request->input('autor_id')
         ]);
 
-        return redirect()->route('libros.index')->with('success', 'Registro actualizado correctamente');
+        return redirect()->route('libros.index');
     }
 
     /**
@@ -83,6 +78,6 @@ class LibroController extends Controller
         $libro = Libro::findOrFail($id);
         $libro->delete();
 
-        return redirect()->route('libros.index')->with('success', 'Registro eliminado');
+        return redirect()->route('libros.index');
     }
 }
