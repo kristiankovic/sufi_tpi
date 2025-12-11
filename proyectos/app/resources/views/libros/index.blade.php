@@ -29,8 +29,7 @@
                                     </button>
                                 </form>
 
-                                <a class="bg-blue-600 text-white rounded-lg p-1"
-                                    href="{{ route('libros.edit', $libro->id) }}">Editar</a>
+                                <a class="bg-blue-600 text-white rounded-lg p-1" href="{{ route('libros.edit', $libro->id) }}">Editar</a>
                             </div>
                         </td>
                     </tr>

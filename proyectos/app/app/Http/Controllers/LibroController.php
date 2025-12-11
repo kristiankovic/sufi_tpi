@@ -66,8 +66,8 @@ class LibroController extends Controller
      */
     public function update(Request $request, Libro $libro)
     {
-        Libro::update([
-            'titlo'             => $request->input('titulo'),
+        $libro->update([
+            'titulo'             => $request->input('titulo'),
             'anio_publicacion'  => $request->input('anio_publicacion'),
             'autor_id'          => $request->input('autor_id')
         ]);
