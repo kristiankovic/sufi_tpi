@@ -21,7 +21,7 @@
                         <td>
                             <div class="flex flex-row p-2 gap-2">
                                 <form action="{{ route('libros.destroy', $libro->id) }}" method="POST"
-                                    onsubmit="return confirm('¿Seguro de eliminar este registro?');">
+                                    onsubmit="return confirm('¿Seguro de eliminar?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="bg-red-600 text-white rounded-lg p-1" type="submit">
@@ -29,7 +29,8 @@
                                     </button>
                                 </form>
 
-                                <a class="bg-blue-600 text-white rounded-lg p-1" href="{{ route('libros.edit', $libro->id) }}">Editar</a>
+                                <a class="bg-blue-600 text-white rounded-lg p-1"
+                                    href="{{ route('libros.edit', $libro->id) }}">Editar</a>
                             </div>
                         </td>
                     </tr>
