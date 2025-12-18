@@ -19,13 +19,13 @@
                         <td class="border p-2">{{ $item->anio_publicacion  }}</td>
                         <td>
                             <div class="flex flex-row p-2 gap-2">
-                                {{-- <form action="{{ route('libros.destroy', $item->id) }}" method="POST">
+                                <form action="{{ route('libros.destroy', $item->id) }}" method="POST" onsubmit="return confirm('¿Seguro que desea eliminar el registro?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="bg-red-600 text-white rounded-lg p-1">Eliminar</button>
-                                </form> --}}
+                                </form>
 
-                                <a class="bg-red-600 text-white rounded-lg p-1" href="{{ route('libros.destroy', $item->id) }}">Eliminar</a>
+                                {{-- <a class="bg-red-600 text-white rounded-lg p-1" href="{{ route('libros.destroy', $item->id) }}">Eliminar</a> --}}
 
                                 <a class="bg-blue-600 text-white rounded-lg p-1" href="{{ route('libros.edit', $item->id) }}">Editar</a>
                             </div>

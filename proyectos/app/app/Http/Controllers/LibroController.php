@@ -67,6 +67,6 @@ class LibroController extends Controller
         $libro = Libro::find($id);
         $libro->delete();
 
-        return redirect("libros.index")->with("success","Registro eliminado");
+        return redirect("libros")->with("success","Registro eliminado");
     }
 }
